@@ -62,33 +62,21 @@ public class Main {
 
 
         System.out.println("Использование бинарной кучи ");
-        long startHeap = System.nanoTime();
         int resultHeap = KthLargestElement.findKthLargestWithHeap(nums1, k);
-        long endHeap = System.nanoTime();
         System.out.println("К-й элемент: " + resultHeap);
-        System.out.println("Время: " + (endHeap - startHeap) + " милисекунд");
+
 
         //  время выполнения с использованием метода выбора
         System.out.println("Использование алгоритма выбора для поиска ");
-        long startSelectSort = System.nanoTime();
+
         int resultSelectSort = KthLargestElement. findKthLargestSelect(nums2, k);
-        long endSelectSort = System.nanoTime();
+
         System.out.println("К-й элемент: " + resultSelectSort );
-        System.out.println("Время: " + (endSelectSort  - startSelectSort ) + " милисекунд");
 
-        //  время выполнения с использованием сортировки пузырьком
-        System.out.println("Использование сортировки пузырьком для поиска ");
-        long startSort = System.nanoTime();
-        int resultSorting = KthLargestElement.findKthLargestNaive(nums3, k);
-        long endSort = System.nanoTime();
-        System.out.println("К-й элемент: " + resultSorting);
-        System.out.println("Время: " + (endSort - startSort) + " милисекунд");
+        long heapTime = (KthLargestElement.endHeap - KthLargestElement.startHeap);
 
-        long heapTime = (endHeap - startHeap);
-        long sortTime = (endSort - startSort);
-        long selectSortTime =(endSelectSort -startSelectSort);
-        System.out.println("Разница сортировки пузырьком и бинарной кучи: "+ (sortTime-heapTime)+ " милисекунд");
-        System.out.println("Разница методом выбора и бинарной кучи: "+ (selectSortTime-heapTime)+ " милисекунд");
+        long selectSortTime =(KthLargestElement.endSelectSort - KthLargestElement.startSelectSort);
+        System.out.println("Разница методом выбора и бинарной кучи: "+ (selectSortTime-heapTime)+ " наносекунд");
 
 
     }
